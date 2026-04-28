@@ -34,7 +34,7 @@ These are settled and documented in the plan. Do not re-litigate:
 | Externalized state in `.sop-session/state.json` | Eliminates exponential context growth. The skill never relies on chat history surviving turns. |
 | Lazy-loaded phases — `SKILL.md` is a thin router (~60 lines) | Phase instructions live in `core/phases/*.md`, loaded only when needed. ~50% reduction in fixed per-turn cost. |
 | Filesystem required | Targets are Claude Code, Claude Cowork, OpenClaw. Plain Claude Desktop without filesystem MCP is not supported. |
-| English internals, user-language dialogue | All skill instructions, manifest fields, file paths, IDs, code, comments, and markdown artifacts are in English. Conversation with the user follows the user's language. Generated SOP *content* is in the user's language. |
+| English internals, user-language dialogue | All committed artifacts (skill instructions, manifest fields, file paths, IDs, code, comments, markdown — *including example dialogue strings inside the files*) are in English. Files are read by agents, not humans. When showing file content to a human in chat, translate to the user's conversation language at display time. Conversation with the user follows the user's language. Generated SOP *body content* is the only thing rendered in the user's language. |
 | Inferred deployment target with plain-language confirmation | The skill silently classifies each SOP (`HUMAN_TRIGGERED`, `TIME_OR_EVENT_TRIGGERED`, `AMBIGUOUS`) and confirms with the user in plain words ("conversational assistant", "automation"), not framework names. |
 | CrewAI is flagship, OpenClaw is secondary | Adapter priority and example budget reflect this. |
 
