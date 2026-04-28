@@ -134,3 +134,28 @@ sm.save(state)
 
 Public functions: `default_state`, `load`, `save`, `deep_merge`, `next_pop_id`, `add_pop`,
 `update_pop`, `set_notes`, `clear_notes`, `state_path`, `state_dir`.
+
+---
+
+## token-budget.py
+
+Approximates token consumption from a saved session transcript using a character-based
+heuristic. Used by the token-economy benchmark to compare `pop-generator` (legacy) against
+`sop-forge` on equivalent business cases. Methodology and accuracy limits are documented in
+`benchmarks/method.md`.
+
+```bash
+# Default: chars / 3.5
+python core/scripts/token-budget.py session.txt
+
+# Per-speaker breakdown when transcript has Human:/Assistant: tags
+python core/scripts/token-budget.py --by-speaker session.txt
+
+# Multiple files, JSON output, English-only divisor
+python core/scripts/token-budget.py --chars-per-token 4.0 --json before.txt after.txt
+
+# Read from stdin
+cat session.txt | python core/scripts/token-budget.py --by-speaker
+```
+
+Public functions: `estimate_tokens`, `split_by_speaker`, `analyze`.
