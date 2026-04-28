@@ -34,9 +34,9 @@ durable storage — durable state lives in `.sop-session/state.json`.
 This file is a router. Load the relevant phase file before executing each phase.
 
 - **A — Business context** (once, at session start) → load `phases/A-context.md`
-- **B — Per-SOP brainstorm** (includes depth questions; old Phase C is folded in) → load `phases/B-brainstorm.md`
-- **D — Generate `.md` SOP and `.agent.yaml` manifest** → load `phases/D-generate.md`
-- **E — Review and transition to next SOP** → load `phases/E-review.md`
+- **B — Backlog construction (one-time) and per-SOP brainstorm (per loop iteration; legacy Phase C depth folded in)** → load `phases/B-brainstorm.md`
+- **D — Generate `.md` SOP** (Week 2 adds `.agent.yaml` manifest emission) → load `phases/D-generate.md`
+- **E — Review the generated SOP and transition to the next backlog item** → load `phases/E-review.md`
 - **F — Closing: write `INDEX.md` and wrap session** → load `phases/F-closing.md`
 
 After Phase E, return to Phase B with the next backlog item until the backlog is empty, then
