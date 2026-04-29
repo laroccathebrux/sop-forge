@@ -7,7 +7,7 @@ two actions in order:
 2. Write `<pop>.md` to disk.
 
 Phase D **never echoes the generated file content back into chat** after writing. Show only
-a short summary plus the path. This is a token-economy invariant declared in `core/SKILL.md`.
+a short summary plus the path. This is a token-economy invariant declared in `SKILL.md`.
 
 > Week 2 will extend this phase to also emit `<pop>.agent.yaml` against the v1 manifest spec.
 > v0.1 produces only the `.md`.
@@ -51,7 +51,7 @@ Create the parent directory if it does not exist.
 
 ### Body
 
-Use the template at `core/references/pop-template.md`. The body is rendered in the user's
+Use the template at `references/pop-template.md`. The body is rendered in the user's
 language (`state.language`). Translate the structured fields from `current_pop_notes`
 (stored in English) into the user's language at render time. Keep imperative voice in
 instructions ("Do X", "Verify Y").

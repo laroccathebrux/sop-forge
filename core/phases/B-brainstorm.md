@@ -13,7 +13,7 @@ Phase B has two modes. Pick the mode from state, do not ask the user which one.
 
 ## Mode 1 — Backlog construction
 
-Load `core/references/sectors.md` and find the entry matching `state.business.sector`.
+Load `references/sectors.md` and find the entry matching `state.business.sector`.
 If no exact match exists, pick the closest sibling and proceed; do not ask the user for
 disambiguation here.
 
@@ -57,7 +57,7 @@ Pick the next pending entry from `state.backlog`. Mark it in progress:
 state-manager.py update-pop POP-NN --status in_progress
 ```
 
-Load `core/references/pop-template.md` so you know the target output shape.
+Load `references/pop-template.md` so you know the target output shape.
 
 Announce which POP you are working on (one short sentence, user's language). Then ask in
 two thematic rounds — never as a single long list.
@@ -83,7 +83,7 @@ detail.
 ### Silent target classification
 
 While listening, classify the SOP. The categories and their meaning are defined in
-`core/SKILL.md` under "Target inference" — do not duplicate the rules here. Do **not**
+`SKILL.md` under "Target inference" — do not duplicate the rules here. Do **not**
 mention the categories or any framework name to the user; surface confirmation belongs to
 Phase D.
 

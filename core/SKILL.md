@@ -46,7 +46,7 @@ enter Phase F.
 
 - On entry, always read `.sop-session/state.json` first. If absent, treat as a new session and
   enter Phase A.
-- Use `core/scripts/state-manager.py` for read/write. Do not edit the JSON manually.
+- Use `scripts/state-manager.py` (relative to this file) for read/write. Do not edit the JSON manually.
 - Persisted shape (owned by the script): `business`, `language`, `translations`, `backlog[]`
   with status, `current_pop_notes` (structured: `trigger`, `owner`, `steps[]`, `risks[]`,
   `resources[]`).

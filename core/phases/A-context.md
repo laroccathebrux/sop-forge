@@ -38,7 +38,7 @@ state-manager.py set --json '{
 ### Round 2 — sector calibration (only if needed)
 
 Skip Round 2 unless you cannot identify the right sector entry in
-`core/references/sectors.md` from Round 1 alone. If you must ask, ask one targeted follow-up.
+`references/sectors.md` from Round 1 alone. If you must ask, ask one targeted follow-up.
 Do not grind the user through unnecessary detail — the goal of Phase A is to get out of Phase
 A quickly.
 
