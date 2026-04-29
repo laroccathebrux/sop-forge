@@ -32,6 +32,13 @@ If the user disagrees, update the notes and re-confirm:
 state-manager.py set-notes --json '{ ..., "target_category": "TIME_OR_EVENT_TRIGGERED" }'
 ```
 
+Once the user agrees on a category, propagate it to the backlog entry so the post-session
+state reflects what was actually generated:
+
+```
+state-manager.py update-pop POP-NN --target-category TIME_OR_EVENT_TRIGGERED
+```
+
 ## Step 2 — Write the SOP file
 
 ### Naming convention

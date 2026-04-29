@@ -19,10 +19,23 @@ from typing import Any
 
 DEFAULT_CHARS_PER_TOKEN = 3.5
 
-SPEAKER_RE = re.compile(
+TRADITIONAL_SPEAKER_RE = re.compile(
     r"^\s*>?\s*(Human|User|Assistant|Claude|AI)\s*:\s*",
     re.IGNORECASE,
 )
+# Claude Code CLI transcript glyphs: ❯ for user input, ⏺ for assistant turn.
+CLAUDE_CODE_GLYPH_RE = re.compile(r"^\s*([❯⏺])\s+")
+GLYPH_TO_SPEAKER = {"❯": "human", "⏺": "assistant"}
+
+
+def _detect_speaker(line: str) -> str | None:
+    m = TRADITIONAL_SPEAKER_RE.match(line)
+    if m:
+        return m.group(1).lower()
+    m = CLAUDE_CODE_GLYPH_RE.match(line)
+    if m:
+        return GLYPH_TO_SPEAKER[m.group(1)]
+    return None
 
 
 def estimate_tokens(text: str, chars_per_token: float = DEFAULT_CHARS_PER_TOKEN) -> int:
@@ -45,10 +58,10 @@ def split_by_speaker(text: str) -> dict[str, str]:
             buf = []
 
     for line in text.splitlines(keepends=True):
-        m = SPEAKER_RE.match(line)
-        if m:
+        speaker = _detect_speaker(line)
+        if speaker is not None:
             flush()
-            current = m.group(1).lower()
+            current = speaker
         elif current is None:
             current = "preamble"
         buf.append(line)
